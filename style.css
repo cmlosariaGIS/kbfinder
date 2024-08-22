@@ -1,0 +1,1134 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Be Vietnam', sans-serif;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    background-color: #3b5998;
+    padding: 3px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+    width: 35px;
+    height: 35px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.button img {
+    width: 20px;
+    height: auto;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-bottom: -5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* Added padding on top */
+}
+
+.button-container .button {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+/* Tooltip */
+.tooltip {
+    visibility: hidden;
+    width: 80px;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    top: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.button:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Cluster customization */
+.leaflet-marker-icon {
+    background-color: #FFC0CB;
+    /* Light pink */
+    border-radius: 50%;
+}
+
+.leaflet-marker-icon div {
+    background-color: #FF69B4;
+    /* Dark pink */
+    border-radius: 50%;
+}
+
+/* Basemap Switcher */
+.basemap-control {
+    position: absolute;
+    bottom: 5px;
+    left: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+}
+
+.basemap-control img {
+    width: 85px;
+    height: 85px;
+    transition: transform 0.2s ease;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+}
+
+.basemap-label {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    opacity: 0;
+    position: relative;
+    text-align: center;
+    padding: 0px;
+    height: 30px;
+    line-height: 30px;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Adjusted color */
+    border-radius: 0 0 15px 15px;
+    color: rgb(58, 58, 58);
+    font-weight: bold;
+    width: 85px;
+    transform: translateY(10px);
+    /* Initially move label 10px above bottom */
+    font-family: 'Be Vietnam', sans-serif;
+}
+
+.basemap-control:hover .basemap-label {
+    transform: translateY(calc(-100% - -1px));
+    /* Slide label up from the bottom of the image */
+    opacity: 1;
+}
+
+/*Start Menu Bar*/
+.menu-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 999999;
+    padding: 10px 10px 10px 20px;
+    /* Adjusted padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+}
+
+.middle-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.project-title {
+    display: flex;
+    align-items: left;
+    justify-content: flex-start;
+    /* Align to the left */
+    padding: 0 30px;
+    /* Add padding if necessary */
+    font-size: large;
+}
+
+
+.right-section {
+    display: flex;
+    align-items: center;
+    padding-right: 30px;
+    /* Adjusted padding */
+}
+
+.company-logo {
+    max-width: 100px;
+    max-height: 40px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input[type="text"] {
+    width: 200px;
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    outline-width: 1px;
+    outline-color: #ccc;
+}
+
+.search-bar button {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    margin-right: 10px;
+    /* Add margin between search button and filter button */
+}
+
+.search-bar button:hover {
+    background-color: #ddd;
+}
+
+
+.filterProjects-button {
+    font-family: 'Be Vietnam', sans-serif;
+    font-size: 14px;
+    padding: 8px 16px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+    margin-left: 10px;
+}
+
+.filterProjects-button {
+    background-color: #04a9b2;
+}
+
+.filterProjects-button:hover {
+    background-color: #0097ae;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+    .search-bar {
+        right: 20%;
+    }
+
+    .filterProjects-button {
+        right: 10%;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .search-bar {
+        right: 12%;
+    }
+
+    .filterProjects-button {
+        right: 8%;
+    }
+}
+
+
+/*End Menu Bar*/
+
+/*Start Slide out Filter Menu*/
+.slide-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: width 0.5s;
+    padding-top: 60px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+
+.slide-menu.active {
+    width: 40%;
+}
+
+.slide-menu-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.slide-menu-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 36px;
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+.filter-category {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.filter-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.filter-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+
+/* Reset Filters and Apply Filters*/
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.reset-filters-button,
+.apply-filters-button {
+    font-family: 'Be Vietnam', sans-serif;
+    font-size: 14px;
+    padding: 8px 16px;
+    background-color: #04a9b2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(50% - 10px); /* 50% width minus 10px for the gap */
+}
+
+.reset-filters-button .material-symbols-outlined,
+.apply-filters-button .material-symbols-outlined {
+    margin-right: 8px;
+}
+
+.apply-filters-button:hover,
+.reset-filters-button:hover {
+    background-color: rgb(0, 131, 154);
+}
+
+.reset-filters-button .material-symbols-outlined::before,
+.apply-filters-button .material-symbols-outlined::before {
+    content: attr(data-icon);
+}
+
+.reset-filters-button .material-symbols-outlined::before {
+    font-family: "Material Icons Outlined";
+}
+
+.apply-filters-button .material-symbols-outlined::before {
+    font-family: "Material Icons";
+}
+
+/* Add a gap between buttons */
+.reset-filters-button + .apply-filters-button {
+    margin-left: 20px;
+}
+
+
+
+
+
+.clear-categorySelection-button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    padding: 5px 8px;
+    background-color: #e5e5e5;
+    color: rgb(98, 98, 98);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+
+.clear-categorySelection-button:hover{
+    background-color: #df194a;
+    color: rgb(255, 255, 255);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Checkbox styling */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.checkbox-container input:checked~.checkmark {
+    background-color: #2196F3;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked~.checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.expandable-options {
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+
+.tooltip-bottom::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 70%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #ffffff transparent;
+}
+
+
+
+.tooltip-bottom {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 10%;
+    transform: translateX(-50%);
+    z-index: 1;
+    background-color: #ffffff;
+    color: #555;
+    text-align: center;
+    padding: 8px;
+    border-radius: 6px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 14px;
+    white-space: nowrap;
+    outline: none;
+}
+
+
+
+
+
+/*Bakeshops filter*/
+.bakeshops-filter {
+    position: absolute;
+    right: 625px;
+    top: 80px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    font-size: 14px;
+    font-family: 'Be Vietnam', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.bakeshops-icon {
+    width: 25px; /* Adjust the size as needed */
+    height: 25px; /* Adjust the size as needed */
+}
+
+.bakeshops-text {
+    margin-left: 4px;
+}
+
+.bakeshops-filter:hover {
+    background-color: #f4aad8;
+    color: rgb(255, 255, 255);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.bakeshops-filter:hover  .tooltip-bottom {
+    visibility: visible;
+    opacity: 1;
+    font-family: 'Be Vietnam', sans-serif;
+}
+
+.active-bakeshops {
+    background-color: #f4aad8; /* Change to your desired pink color */
+    color: rgb(255, 255, 255)
+}
+
+
+/*Restaurants filter*/
+.restaurants-filter {
+    position: absolute;
+    right: 494px;
+    top: 80px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    font-size: 14px;
+    font-family: 'Be Vietnam', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.restaurants-icon {
+    width: 25px; /* Adjust the size as needed */
+    height: 25px; /* Adjust the size as needed */
+}
+
+.restaurants-text {
+    margin-left: 4px;
+}
+
+.restaurants-filter:hover {
+    background-color: #f4aad8;
+    color: rgb(255, 255, 255);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.restaurants-filter:hover  .tooltip-bottom {
+    visibility: visible;
+    opacity: 1;
+    font-family: 'Be Vietnam', sans-serif;
+}
+
+.active-restaurants {
+    background-color: #f4aad8; /* Change to your desired pink color */
+    color: rgb(255, 255, 255)
+}
+
+/*Catering filter*/
+.foodbusiness-filter {
+    position: absolute;
+    right: 390px;
+    top: 80px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    font-size: 14px;
+    font-family: 'Be Vietnam', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.foodbusiness-icon {
+    width: 25px; /* Adjust the size as needed */
+    height: 25px; /* Adjust the size as needed */
+}
+
+.foodbusiness-text {
+    margin-left: 4px;
+}
+
+.foodbusiness-filter:hover {
+    background-color: #f4aad8;
+    color: rgb(255, 255, 255);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.foodbusiness-filter:hover  .tooltip-bottom {
+    visibility: visible;
+    opacity: 1;
+    font-family: 'Be Vietnam', sans-serif;
+}
+
+
+.active-foodbusiness {
+    background-color: #f4aad8; /* Change to your desired pink color */
+    color: rgb(255, 255, 255);
+}
+
+
+/*Clothes Filters Button*/
+
+.clothesshop-filter {
+    position: absolute;
+    right: 293px;
+    top: 80px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    font-size: 14px;
+    font-family: 'Be Vietnam', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.clothesshop-icon {
+    width: 25px; /* Adjust the size as needed */
+    height: 25px; /* Adjust the size as needed */
+}
+
+.clothesshop-text {
+    margin-left: 4px;
+}
+
+.clothesshop-filter:hover {
+    background-color: #f4aad8;
+    color: rgb(255, 255, 255);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.clothesshop-filter:hover .tooltip-bottom {
+    visibility: visible;
+    opacity: 1;
+    font-family: 'Be Vietnam', sans-serif;
+}
+
+.active-clothesshop {
+    background-color: #f4aad8; /* Change to your desired pink color */
+    color: rgb(255, 255, 255)
+
+}
+/*Coffee Filters Button*/
+
+.cafes-filter {
+    position: absolute;
+    right: 206px;
+    top: 80px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    font-size: 14px;
+    font-family: 'Be Vietnam', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.cafes-icon {
+    width: 25px; /* Adjust the size as needed */
+    height: 25px; /* Adjust the size as needed */
+}
+
+.cafes-text {
+    margin-left: 4px;
+}
+
+.cafes-filter:hover {
+    background-color: #f4aad8;
+    color: rgb(255, 255, 255);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.cafes-filter:hover .tooltip-bottom {
+    visibility: visible;
+    opacity: 1;
+    font-family: 'Be Vietnam', sans-serif;
+}
+
+.active-cafes {
+    background-color: #f4aad8; /* Change to your desired pink color */
+    color: rgb(255, 255, 255);
+}
+
+
+
+
+/*Milktea Filters Button*/
+
+.milktea-filter {
+    position: absolute;
+    right: 107px;
+    top: 80px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    font-size: 14px;
+    font-family: 'Be Vietnam', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.milktea-icon {
+    width: 25px; /* Adjust the size as needed */
+    height: 25px; /* Adjust the size as needed */
+}
+
+.milktea-text {
+    margin-left: 4px;
+}
+
+.milktea-filter:hover {
+    background-color: #f4aad8;
+    color: rgb(255, 255, 255);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.milktea-filter:hover .tooltip-bottom {
+    visibility: visible;
+    opacity: 1;
+    font-family: 'Be Vietnam', sans-serif;
+}
+.active-milktea {
+    background-color: #f4aad8; /* Change to your desired pink color */
+    color: rgb(255, 255, 255);
+}
+
+
+/*Show More*/
+.more-filter {
+    position: absolute;
+    right:25px;
+    top: 80px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    font-size: 14px;
+    font-family: 'Be Vietnam', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.more-icon {
+    width: 25px; /* Adjust the size as needed */
+    height: 25px; /* Adjust the size as needed */
+}
+
+.more-text {
+    margin-left: 4px;
+}
+
+.more-filter:hover {
+    background-color: #f4aad8;
+    color: rgb(255, 255, 255);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.more-filter:hover  .tooltip-bottom {
+    visibility: visible;
+    opacity: 1;
+    font-family: 'Be Vietnam', sans-serif;
+}
+
+
+.active-more {
+    background-color: rgb(0, 162, 68);
+    color: white;
+}
+
+
+/*Maker label*/
+
+/* Custom styles for tooltips */
+.custom-tooltip {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    color: #262626; /* Text color */
+    font-size: 14px; /* Font size */
+    font-weight: bold; /* Make the text bold */
+    text-shadow: 
+        -1px -1px 0 #fff,  
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px 1px 0 #fff; /* White halo effect */
+}
+
+/* Make the tooltip pointer triangle transparent */
+.custom-tooltip.leaflet-tooltip-right::before {
+    border-right-color: transparent;
+}
+/*Locate User Button*/
+.userlocation-button {
+    position: absolute;
+    bottom: 240px;
+    right: 22px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: #ffffff;
+    color: rgb(54, 54, 54);
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.userlocation-button:hover {
+    background-color: #c9c9c9;
+}
+
+.userlocation-button:hover .tooltip-right {
+    visibility: visible;
+    opacity: 1;
+    font-family: 'Be Vietnam', sans-serif;
+}
+
+.userlocation-button span {
+    line-height: 1;
+}
+
+
+
+.tooltip-right {
+    position: absolute;
+    top: 50%;
+    right: calc(100% + 10px);
+    transform: translateY(-50%);
+    z-index: 1;
+    background-color: #ffffff;
+    color: #555;
+    text-align: center;
+    padding: 8px;
+    border-radius: 6px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 14px;
+    white-space: nowrap;
+    outline: none;
+}
+
+.tooltip-right::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    transform: translateY(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent #ffffff;
+}
+
+.tooltip-left {
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 10px);
+    transform: translateY(-50%);
+    z-index: 1;
+    background-color: #ffffff;
+    color: #555;
+    text-align: center;
+    padding: 8px;
+    border-radius: 6px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 14px;
+    white-space: nowrap;
+    outline: none;
+}
+
+.tooltip-left::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -10px; /* Adjust this value as needed */
+    transform: translateY(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #ffffff transparent transparent;
+}
+
+
+
+/*User Locations*/
+.user-location-icon {
+    width: 30px;
+    height: 30px;
+    background-color: rgb(0, 128, 255); /* Changed to blue */
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+}
+
+/*favorites*/
+
+/*Favorite Button*/
+.favorites-button {
+    position: absolute;
+    top: 200px;
+    left: 22px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background-color: #ffffff;
+    color: rgb(54, 54, 54);
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.favorites-button:hover {
+    background-color: #c9c9c9;
+}
+
+.favorites-button:hover .tooltip-right {
+    visibility: visible;
+    opacity: 1;
+    font-family: 'Be Vietnam', sans-serif;
+}
+
+.favorites-button span {
+    line-height: 1;
+}
+
+.fi-ss-heart {
+    color: #b9b0b0; /* Default color */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.fi-ss-heart.clicked {
+    color: pink; /* Change color to pink when clicked */
+}
+
+#favorites {
+    position: absolute;
+    top: 140px; /* Adjusted to move sidebar down further */
+    left: -300px; /* Initially hide off-screen */
+    width: 300px; /* Increased width for better spacing */
+    height: 600px; /* Set a fixed height or adjust as needed */
+    background: #ffffff; /* White background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+    border-radius: 5px; /* Rounded corners */
+    overflow-y: auto;
+    z-index: 999999999;
+    font-family: 'Be Vietnam', sans-serif;
+    border: 1px solid #e0e0e0; /* Light gray border */
+    transition: left 0.3s ease; /* Slide animation transition */
+}
+
+#favorites.show {
+    left: 10px; /* Adjusted to place sidebar on the left */
+}
+
+#favorites.hide {
+    left: -300px; /* Move sidebar off-screen to the left */
+}
+
+#close-favorites {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: #555555;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#close-favorites:hover {
+    color: #333333; /* Darker color on hover */
+}
+
+#favorites h2 {
+    margin-top: 0;
+    font-size: 18px; /* Larger font size */
+    color: #333333; /* Dark text color */
+    padding: 10px; /* Adjusted padding around the heading */
+}
+
+.favorite-item {
+    cursor: pointer;
+    padding: 8px; /* Adjusted padding for the items */
+    font-size: 14px;
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.favorite-item:hover {
+    background-color: #ffbfe5; /* Light gray background on hover */
+    border-radius: 3px; /* Rounded corners on hover */
+}
+
+#favoriteButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+#favoriteButton i {
+    font-size: 24px;
+    color: #ff69b4; /* Pink color */
+}
+
+#favoriteButton:hover {
+    opacity: 0.8; /* Adjust hover opacity as needed */
+}
+
+
+
+.slide-up-panel {
+    position: fixed;
+    bottom: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 97%;
+    height: 45vh;
+    background-color: white;
+    transition: bottom 0.3s ease-out;
+    z-index: 99999999;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.slide-up-panel.active {
+    bottom: 0;
+}
+
+.panel-handle {
+    width: 40px;
+    height: 5px;
+    background-color: #ccc;
+    border-radius: 3px;
+    margin: 10px auto;
+}
+
+.panel-content {
+    padding: 30px;
+    overflow-y: none;
+    max-height: calc(50vh - 25px); /* Adjusted for new panel height */
+}
+
+.panel-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.panel-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+@media (min-width: 769px) {
+    .slide-up-panel {
+        display: none;
+    }
+}
+
+/* Add this to ensure the panel is above other elements */
+.leaflet-popup-pane {
+    z-index: 99999998;
+}
+
+
